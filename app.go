@@ -33,13 +33,16 @@ func main() {
 	scanner.Scan()
 	text := scanner.Text()
 	fmt.Println(text)
+	var chosenItem inventory
 	for _, inventoryItem := range inventoryItems {
-		fmt.Print(inventoryItem)
 		if text == inventoryItem.name {
-			fmt.Println("\nokay, great!")
+			chosenItem = inventoryItem
+			fmt.Println("okay, great!")
 			break
-		} else {
-			fmt.Println("That's not a option.")
 		}
 	}
+	if chosenItem == (inventory{}) {
+		fmt.Println("not an option")
+	}
+
 }
