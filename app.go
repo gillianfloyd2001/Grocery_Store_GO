@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-/// This is just making a collection of fields with a name and a type
+// This is just making a collection of fields with a name and a type
 type inventory struct {
 	code        string
 	name        string
@@ -18,18 +18,28 @@ type inventory struct {
 func main() {
 	fmt.Println("Welcome to our grocery store!\nPlease review our inventory and make your selection.")
 
-	inventory_items := []inventory{
+	inventoryItems := []inventory{
 		{code: "001", name: "apple", description: "fresh red apple", price: 0.4, quantity: 14},
 		{code: "002", name: "dounut", description: "donut with sprinkle", price: 0.99, quantity: 11},
 		{code: "003", name: "coke", description: "bottle of coca cola", price: 1.49, quantity: 9},
 		{code: "004", name: "bacon", description: "farm fresh bacon", price: 4.99, quantity: 5},
 	}
-	fmt.Println(inventory_items[0].code, inventory_items[0].name, ",", inventory_items[0].description, ",", inventory_items[0].price, ",", inventory_items[0].quantity)
-	fmt.Println(inventory_items[1].code, inventory_items[1].name, ",", inventory_items[1].description, ",", inventory_items[1].price, ",", inventory_items[1].quantity)
-	fmt.Println(inventory_items[2].code, inventory_items[2].name, ",", inventory_items[2].description, ",", inventory_items[2].price, ",", inventory_items[2].quantity)
-	fmt.Println(inventory_items[3].code, inventory_items[3].name, ",", inventory_items[3].description, ",", inventory_items[3].price, ",", inventory_items[3].quantity)
-	reader := bufio.NewReader(os.Stdin)
+	fmt.Println(inventoryItems[0].code, inventoryItems[0].name, ",", inventoryItems[0].description, ",", inventoryItems[0].price, ",", inventoryItems[0].quantity)
+	fmt.Println(inventoryItems[1].code, inventoryItems[1].name, ",", inventoryItems[1].description, ",", inventoryItems[1].price, ",", inventoryItems[1].quantity)
+	fmt.Println(inventoryItems[2].code, inventoryItems[2].name, ",", inventoryItems[2].description, ",", inventoryItems[2].price, ",", inventoryItems[2].quantity)
+	fmt.Println(inventoryItems[3].code, inventoryItems[3].name, ",", inventoryItems[3].description, ",", inventoryItems[3].price, ",", inventoryItems[3].quantity)
+	scanner := bufio.NewScanner(os.Stdin)
 	fmt.Print("Enter name of the item you wanna buy: ")
-	text, _ := reader.ReadString('\n')
+	scanner.Scan()
+	text := scanner.Text()
 	fmt.Println(text)
+	for _, inventoryItem := range inventoryItems {
+		fmt.Print(inventoryItem)
+		if text == inventoryItem.name {
+			fmt.Println("\nokay, great!")
+			break
+		} else {
+			fmt.Println("That's not a option.")
+		}
+	}
 }
