@@ -45,7 +45,7 @@ func main() {
 			numberOfQuantityChange--
 
 			fmt.Println(priceWithOutTaxes)
-			fmt.Printf("%.2f", priceWithTaxes)
+			fmt.Printf("%.1f", priceWithTaxes)
 			fmt.Print(numberOfQuantityChange)
 			break
 		}
