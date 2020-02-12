@@ -37,7 +37,16 @@ func main() {
 	for _, inventoryItem := range inventoryItems {
 		if text == inventoryItem.name {
 			chosenItem = inventoryItem
+			numberOfQuantityChange := inventoryItem.quantity
+			priceWithOutTaxes := inventoryItem.price
+			taxes := inventoryItem.price * .07
+			priceWithTaxes := priceWithOutTaxes + taxes
 			fmt.Println("okay, great!")
+			numberOfQuantityChange--
+
+			fmt.Println(priceWithOutTaxes)
+			fmt.Printf("%.2f", priceWithTaxes)
+			fmt.Print(numberOfQuantityChange)
 			break
 		}
 	}
