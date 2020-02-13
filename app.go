@@ -38,16 +38,13 @@ func main() {
 		if text == inventoryItem.name {
 			chosenItem = inventoryItem
 			numberOfQuantityChange := inventoryItem.quantity
-			priceWithOutTaxes := inventoryItem.price
+			subTotal := inventoryItem.price
 			taxes := inventoryItem.price * .07
-			priceWithTaxes := priceWithOutTaxes + taxes
-			fmt.Println("okay, great!")
+			total := subTotal + taxes
 			numberOfQuantityChange--
-
-			fmt.Println(priceWithOutTaxes)
-			fmt.Printf("%.1f", priceWithTaxes)
-			fmt.Print(numberOfQuantityChange)
-			break
+			fmt.Println("Subtotal: $", subTotal)
+			fmt.Print("Totol: $")
+			fmt.Printf("%.1f", total)
 		}
 	}
 	if chosenItem == (inventory{}) {
