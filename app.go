@@ -44,7 +44,7 @@ func main() {
 			numberOfQuantityChange--
 			fmt.Println("Subtotal: $", subTotal)
 			fmt.Print("Totol: $")
-			fmt.Printf("%.1f", total)
+			fmt.Printf("%.2f", total)
 		}
 	}
 	if chosenItem == (inventory{}) {
