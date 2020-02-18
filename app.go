@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-// This is just making a collection of fields with a name and a type
+// This is a structure that is declared with strings field, floating-point field, and int field.
 type inventory struct {
 	code        string
 	name        string
